@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/webpack-dev-server"
+    "start": "./node_modules/.bin/webpack-dev-server",
+		"serve" : "./node_modules/.bin/http-server ./dist -p 8090",
+		"webpack" : "./node_modules/.bin/webpack"
   },
   "author": "Gideon Rosales <gideonrosales@gmail.com> (https://github.com/gideonairex)",
   "license": "ISC",
   "dependencies": {
     "alt": "^0.18.1",
     "flux": "^2.1.1",
+    "http-server": "^0.8.5",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
