@@ -6,6 +6,7 @@ import Table from 'react-bootstrap/lib/Table';
 import BrowserstackStore from '../../stores/browserstack-store';
 import BrowserstackSessionActions from '../../actions/browserstack-session-action';
 import { Link } from 'react-router';
+import moment from 'moment';
 
 class TestCase extends React.Component {
 
@@ -40,6 +41,7 @@ class TestCase extends React.Component {
 					<td> { session._id } </td>
 					<td> { session.success } </td>
 					<td> { session.fail } </td>
+					<td> { moment( session.endTime ).format( 'h:mm:ss a, MMMM Do YYYY' ) } </td>
 					<td> <a href={ session.browserStackURL } target='_blank'>{ session.browserStackId} </a></td>
 				</tr>
 			)
@@ -53,6 +55,7 @@ class TestCase extends React.Component {
 							<th> ID </th>
 							<th> Success </th>
 							<th> Fail </th>
+							<th> End Time </th>
 							<th> Browserstack Session </th>
 						</tr>
 					</thead>
