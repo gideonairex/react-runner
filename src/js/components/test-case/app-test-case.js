@@ -42,6 +42,7 @@ class TestCase extends React.Component {
 					<td> { session.success } </td>
 					<td> { session.fail } </td>
 					<td> { moment( session.endTime ).format( 'h:mm:ss a, MMMM Do YYYY' ) } </td>
+					<td> { session.duration } </td>
 					<td> <a href={ session.browserStackURL } target='_blank'>{ session.browserStackId} </a></td>
 				</tr>
 			)
@@ -56,6 +57,7 @@ class TestCase extends React.Component {
 							<th> Success </th>
 							<th> Fail </th>
 							<th> End Time </th>
+							<th> Duration </th>
 							<th> Browserstack Session </th>
 						</tr>
 					</thead>
