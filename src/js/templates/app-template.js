@@ -36,6 +36,10 @@ class Template extends React.Component {
 				let testCase = id;
 				link += '#/machines/' + this.props.params.machine + '/test-cases/' + testCase;
 				linkName += 'Test case: ' + testCase;
+			} else if ( key === 'logId' ) {
+				let log = id;
+				link += '#/machines/' + this.props.params.machine + '/test-cases/' + this.props.params.testCases + '/logs/' + log;
+				linkName += 'Log: ' + log;
 			}
 			breadcrumbs.push( <BreadcrumbItem href={link} key={ `${id}${key}` }>
 											 {linkName}

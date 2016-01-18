@@ -38,12 +38,11 @@ class TestCase extends React.Component {
 		let sessions = this.state.sessions.map( session => {
 			return (
 				<tr key={session._id}>
-					<td> <Link to={ `machines/${ session.machineId }/test-cases/${ session.testCaseId }/${ session.session }` }>{ session._id } </Link></td>
+					<td> <Link to={ `machines/${ session.machineId }/test-cases/${ session.testCaseId }/logs/${ session.session }` }>{ session._id } </Link></td>
 					<td> { session.success } </td>
 					<td> { session.fail } </td>
 					<td> { moment( session.endTime ).format( 'h:mm:ss a, MMMM Do YYYY' ) } </td>
 					<td> { session.duration } </td>
-					<td> <a href={ session.browserStackURL } target='_blank'>{ session.browserStackId} </a></td>
 				</tr>
 			)
 		} );
@@ -58,7 +57,6 @@ class TestCase extends React.Component {
 							<th> Fail </th>
 							<th> End Time </th>
 							<th> Duration </th>
-							<th> Browserstack Session </th>
 						</tr>
 					</thead>
 					<tbody>

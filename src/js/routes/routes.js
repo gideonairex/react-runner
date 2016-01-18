@@ -13,7 +13,7 @@ export default () => {
 				<IndexRoute component={ Dashboard } />
 				<Route path="machines/:machine" component={ Machine } />
 				<Route path="machines/:machine/test-cases/:testCases" component={ TestCase } />
-				<Route path="machines/:machine/test-cases/:testCases/:logId" component={ LogItem } />
+				<Route path="machines/:machine/test-cases/:testCases/logs/:logId" component={ LogItem } />
 			</Route>
 		</Router>
 	)

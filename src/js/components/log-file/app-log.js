@@ -24,7 +24,7 @@ class LogItem extends React.Component {
 	}
 
 	componentWillUnmount() {
-		LogActions.unlisten( this.updateLogs.bind( this ) );
+		LogsStore.unlisten( this.updateLogs.bind( this ) );
 	}
 
 	updateLogs( state ) {
