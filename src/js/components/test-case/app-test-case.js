@@ -39,8 +39,8 @@ class TestCase extends React.Component {
 			return (
 				<tr key={session._id}>
 					<td> <Link to={ `machines/${ session.machineId }/test-cases/${ session.testCaseId }/logs/${ session.session }` }>{ session._id } </Link></td>
-					<td> { session.success } </td>
-					<td> { session.fail } </td>
+					<td> { session.successCount } </td>
+					<td> { session.failCount } </td>
 					<td> { moment( session.endTime ).format( 'h:mm:ss a, MMMM Do YYYY' ) } </td>
 					<td> { session.duration } </td>
 				</tr>
@@ -53,8 +53,8 @@ class TestCase extends React.Component {
 					<thead>
 						<tr>
 							<th> ID </th>
-							<th> Success </th>
-							<th> Fail </th>
+							<th> Success Count </th>
+							<th> Fail Count </th>
 							<th> End Time </th>
 							<th> Duration </th>
 						</tr>
