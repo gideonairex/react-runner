@@ -21,7 +21,9 @@ class Machine extends React.Component {
 
 	componentWillMount() {
 		this.socket.on( 'browserstack-data-stream', ( data ) => {
-			if( data.machineId === parseInt( this.props.params.machine ) ) {
+			console.log(this.props.params.machine);
+			console.log(data);
+			if( data.machineId === this.props.params.machine ) {
 				let dataText = data.data.trim();
 				if( dataText ) {
 					this.state.stdout.push( data );
