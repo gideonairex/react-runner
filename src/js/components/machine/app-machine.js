@@ -21,8 +21,6 @@ class Machine extends React.Component {
 
 	componentWillMount() {
 		this.socket.on( 'browserstack-data-stream', ( data ) => {
-			console.log(this.props.params.machine);
-			console.log(data);
 			if( data.machineId === this.props.params.machine ) {
 				let dataText = data.data.trim();
 				if( dataText ) {
@@ -33,6 +31,7 @@ class Machine extends React.Component {
 				}
 			}
 		} );
+
 		TestCaseStore.listen( this.updateTestCaseList.bind( this ) );
 		this.setState( TestCaseStore.getState() );
 		let options = {
@@ -43,6 +42,7 @@ class Machine extends React.Component {
 
 	componentWillUnmount() {
 		TestCaseStore.unlisten( this.updateTestCaseList.bind( this ) );
+		this.socket.removeAllListeners( 'browserstack-data-stream' );
 	}
 
 	updateTestCaseList( state ) {
@@ -55,7 +55,7 @@ class Machine extends React.Component {
 		let testCases = this.state.testCases.map( testCase => {
 			return (
 				<tr key={testCase._id}>
-					<td> <Link to={ `machines/${machine}/test-cases/${testCase._id}` }>{ testCase._id } </Link></td>
+					<td> <a href={ `#/machines/${machine}/test-cases/${testCase._id}`} target="_blank">{ testCase._id } </a></td>
 					<td> { testCase.success } </td>
 					<td> { testCase.fail } </td>
 				</tr>
@@ -72,7 +72,7 @@ class Machine extends React.Component {
 				string += '</div>';
 			}
 			return (
-				<ListGroupItem dangerouslySetInnerHTML={{ __html: string }}></ListGroupItem>
+				<div dangerouslySetInnerHTML={{ __html: string }}></div>
 			)
 		} );
 
@@ -92,9 +92,7 @@ class Machine extends React.Component {
 					</tbody>
 				</Table>
 				<Panel collapsible defaultExpanded header="Running Test">
-					<ListGroup fill>
-						{ test }
-					</ListGroup>
+					{ test }
 				</Panel>
 			</Col>
 		)
