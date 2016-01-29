@@ -49,7 +49,7 @@ class Template extends React.Component {
 		return (
 			<Grid>
 				<Row>
-					<PageHeader>E2E Runner</PageHeader>
+					<PageHeader>Test Runner Dashboard</PageHeader>
 				</Row>
 				<Row>
 					<Col xs={12}>

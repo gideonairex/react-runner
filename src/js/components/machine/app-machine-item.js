@@ -26,7 +26,7 @@ class MachineItem extends React.Component {
 					<Panel width="50%" header="Fail" bsStyle="danger">{ item.stats.fail }</Panel>
 				</Col>
 				<Col xs={12}>
-					<Link to={ `/machines/${item.name}`} >Go to mahine</Link>
+					<Link to={ `/machines/${item.name}`} >Go to machine</Link>
 				</Col>
 			</Col>
 		)

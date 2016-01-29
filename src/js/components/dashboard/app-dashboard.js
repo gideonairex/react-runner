@@ -32,7 +32,6 @@ class Dashboard extends React.Component {
 		} );
 		return (
 			<Col xs={12}>
-				<h1>Dashboard</h1>
 				<Row>
 					{ machines }
 				</Row>
